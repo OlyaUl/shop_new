@@ -4,12 +4,12 @@ from datetime import datetime
 
 class CarModel(models.Model):
     title = models.CharField(max_length=30)
-    description = models.TextField(max_length=1000)
+    description = models.TextField(max_length=1000, blank=True)
 
 
 class Color(models.Model):
     title = models.CharField(max_length=30)
-    code_color = models.CharField(max_length=20)
+    code_color = models.CharField(max_length=20, blank=True)
 
 
 class Specifications(models.Model):
@@ -60,5 +60,5 @@ class Car(models.Model):
     title = models.CharField(max_length=30)
     car_model = models.ForeignKey(CarModel, on_delete=models.CASCADE)
     specifications = models.ForeignKey(Specifications, on_delete=models.CASCADE)
-    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True)
     year = models.IntegerField()
