@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Car, CarModel, Color, Specifications, Image
 from django.views.generic import View, ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.utils import timezone
-from .forms import CarForm
+from .forms import CarForm, SpecificationsForm, ImageForm
 
 
 # list view
@@ -34,8 +34,8 @@ class CarDetailView(DetailView):
 # create view
 class CarFormView(CreateView):
     form_class = CarForm
-    template_name = 'cars/car_form.html'
-    success_url = '/Cars/all_cars/'
+    template_name = 'cars/car_create.html'
+    success_url = '/cars/all_cars/'
 
 
 # update view

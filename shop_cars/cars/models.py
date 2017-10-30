@@ -6,10 +6,16 @@ class CarModel(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField(max_length=1000, blank=True)
 
+    def __str__(self):
+        return '{0}'.format(self.title)
+
 
 class Color(models.Model):
     title = models.CharField(max_length=30)
     code_color = models.CharField(max_length=20, blank=True)
+
+    def __str__(self):
+        return self.title
 
 
 class Specifications(models.Model):
@@ -52,8 +58,11 @@ class Specifications(models.Model):
 
 class Image(models.Model):
     title = models.CharField(max_length=30)
-    img = models.ImageField()
+    img = models.ImageField(upload_to='all_img', blank=True)
     main_image = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title
 
 
 class Car(models.Model):
@@ -62,3 +71,6 @@ class Car(models.Model):
     specifications = models.ForeignKey(Specifications, on_delete=models.CASCADE)
     image = models.ForeignKey(Image, on_delete=models.CASCADE, blank=True)
     year = models.IntegerField()
+
+    def __str__(self):
+        return '{0 1 2 }'.format(self.title, self.specifications, self.image)

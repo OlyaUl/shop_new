@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'cars/index.html' %}
 
-</body>
-</html>
+{% block content %}
+    <h1>All Cars</h1>
+    <a href="/cars/car_create/">Create</a>
+    <br><br>
+    {% for car in all_cars %}
+        Car: {{ car.title }}
+        <br>
+
+        <a href="/cars/car_detail/{{ car.pk }}">detail</a>
+        <a href="/cars/car_update/{{ car.pk }}">update</a>
+        <a href="/cars/car_delete/{{ car.pk }}">delete</a>
+        <br>
+
+        --------------------------------------------------------
+        <br>
+    {% endfor %}
+{% endblock %}

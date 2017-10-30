@@ -1,0 +1,22 @@
+{% extends 'cars/index.html' %}
+
+{% block content %}
+    Id: {{ car.pk }}<br>
+
+    Title: {{ car.title }}<br>
+
+    Year: {{ car.year }}<br>
+    Description: {{ car.description }}<br>
+
+    {% for auth in car.authors.all %}
+        Authors: {{ auth.name }}<br>
+    {% endfor %}
+
+    Category: {{ car.category.title }}<br>
+
+    {% for cat in car.category.all %}
+        Category1: {{ cat.title }}<br>
+    {% endfor %}
+
+    ------------------------------------------------------
+{% endblock %}

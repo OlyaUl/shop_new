@@ -1,0 +1,11 @@
+{% extends 'cars/index.html' %}
+
+{% block content %}
+    <form method='POST' action="{% url 'car_create' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!--<input type="text" name="title">title<br>-->
+        <!--<input type="text" name="description">description<br>-->
+
+        <p><input type="submit">OK</p>
+{% endblock %}
