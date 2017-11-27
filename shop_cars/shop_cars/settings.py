@@ -87,11 +87,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'cars',
         'USER': 'postgres',
-        'PASSWORD': '1',
-        'HOST': 'localhost',
+        'PASSWORD': 'postgres',
+        # 'HOST': 'localhost',
+        'HOST': 'postgres',
         'PORT': '5432',
     }
 }
+
+# RUN python shop_cars/manage.py migrate
+
 
 
 
